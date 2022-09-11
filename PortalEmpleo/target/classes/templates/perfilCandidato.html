@@ -1,0 +1,196 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+        <title>PERFIL CANDIDATO</title>
+        <!-- Favicon-->
+         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+    
+
+
+</head>
+    <body>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand" href="#"> <h3>JOBNOW</h3></a>
+                <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto">
+                        <li class=" mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 " >{{nombrecandidato}}{{apellidoscandidato}}</a></li>
+                         <li class=" mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" >{{emailcandidato}}</a></li>
+                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/anunciosTablonPerfilCandidato">Tablon Anuncios</a></li>
+                        <li class="nav-item mx-0 mx-lg-1">
+                        		<form action="/logout" method="post">
+                                    <input type="hidden" name="_csrf" value="{{token}}">
+                                    <input type="submit" value="Cerrar Sesion" class="nav-link py-3 px-0 px-lg-3 rounded" align="right">
+                                </form>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <br>
+        
+             <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+			    <div class="carousel-indicators">
+			      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+			      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+			      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+			      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+			    </div>
+			    
+			    <div class="carousel-inner">
+			    
+			      <div class="carousel-item active">
+			        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
+			        <div class="container">
+			          <div class="carousel-caption">
+			            <h1>CREAR CURRICULUM</h1>
+			            <p>{{nombrecandidato}}{{apellidoscandidato}} si quiere crear un curriculum para que le sea mas facil encontrar un trabajo, haz click en el boton</p>
+			            <p><a class="btn btn-lg btn-primary" href="/pasoPrevio">Crear Curriculum</a></p>
+			          </div>
+			        </div>
+			      </div>
+			      
+			      <div class="carousel-item">
+			        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
+			        <div class="container">
+			          <div class="carousel-caption">
+			            <h1>EDITAR CURRICULUM</h1>
+			            <p>{{nombrecandidato}}{{apellidoscandidato}} si quiere editar el curriculum ya creado y rellenado, haz click en el boton</p>
+			            <p><a class="btn btn-lg btn-primary" href="/pasoPrevioEditar">Editar Curriculum</a></p>
+			          </div>
+			        </div>
+			      </div>
+			      
+			      <div class="carousel-item">
+			        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
+			        <div class="container">
+			          <div class="carousel-caption">
+			            <h1>VER CURRICULUM</h1>
+			            <p>{{nombrecandidato}}{{apellidoscandidato}} si quiere ver su curriculum, haz click en el boton</p>
+						<p><a class="btn btn-lg btn-primary" href="/mi-curriculum">Ver Curriculum</a></p>	
+					  </div>
+			        </div>
+			      </div>
+			      
+			      
+			       <div class="carousel-item">
+			        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
+			        <div class="container">
+			          <div class="carousel-caption">
+			            <h1>MIS ANUNCIOS INSCRIPTOS</h1>
+			            <p>{{nombrecandidato}}{{apellidoscandidato}} si quiere ver los anuncios a los que se ha apuntado, haz click en el boton</p>
+			            <p><a class="btn btn-lg btn-primary" href="/anunciosApuntados">Mis anuncios apuntadas</a></p>
+			          </div>
+			        </div>
+			      </div>
+			      
+			      
+			    </div>
+			    
+			 
+			    
+			    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+			      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			      <span class="visually-hidden">Previous</span>
+			    </button>
+			    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+			      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+			      <span class="visually-hidden">Next</span>
+			    </button>
+			  </div>
+			  
+			  
+        
+  		
+        <!-- Footer-->
+        <footer class="footer text-center">
+            <div class="container">
+                <div class="row">
+                    <!-- Footer Location-->
+                    <div class="col-sm">
+                       
+                    </div>
+                    <!-- Footer Social Icons-->
+                    <div class="col-sm">
+					      <!-- Facebook -->
+					      <a
+					        class="btn btn-primary btn-floating m-1"
+					        style="background-color: #3b5998;"
+					       href="https://es.linkedin.com/"
+					        role="button"
+					        ><i class="fab fa-linkedin fa-2x"></i
+					      >
+					      </a>
+					       <!-- Facebook -->
+					      <a
+					        class="btn btn-primary btn-floating m-1"
+					        style="background-color:blue"
+					       href="https://www.facebook.com"
+					        role="button"
+					        ><i class="fab fa-facebook-f fa-2x"></i
+					      >
+					      </a>
+					
+					      <!-- Twitter -->
+					      <a
+					        class="btn btn-primary btn-floating m-1"
+					        style="background-color: #55acee;"
+					        href="https://www.twitter.com"
+					        role="button"
+					        ><i class="fab fa-twitter fa-2x"></i
+					      ></a>
+					
+					      <!-- Google -->
+					      <a
+					        class="btn btn-primary btn-floating m-1"
+					        style="background-color: #dd4b39;"
+					        href="https://www.plus.google.com"
+					        role="button"
+					        ><i class="fab fa-google-plus fa-2x"></i
+					      ></a>
+					
+					      <!-- Instagram -->
+					      <a
+					        class="btn btn-primary btn-floating m-1"
+					        style="background-color: #ac2bac;"
+					        href="https://www.instagram.com"
+					        role="button"
+					        ><i class="fab fa-instagram fa-2x"></i
+					      ></a>
+                     </div>
+                    <!-- Footer About Text-->
+                    <div class="col-sm">
+                        
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Copyright Section-->
+        <div class="copyright py-4 text-center text-white">
+            <div class="container" style="color:coral"><small>Copyright &copy; Your Website 2021</small></div>
+        </div>
+  
+  
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+        
+    
+    </body>
+</html>

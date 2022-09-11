@@ -1,0 +1,198 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+        <title>Candidatos Apuntados</title>
+        <!-- Favicon-->
+         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+       
+</head>
+    <body>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand"> <h3>JOBNOW </h3></a>
+                <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto">
+                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/mis-anuncios-publicados">Volver</a></li>
+                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/perfilEmpresa">Mi Perfil</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+			{{#noHayCandidatosApuntadosAnuncio}}
+			<section class="page-section" id="no_hay_anunciosPublicados">
+				<br>
+				<br>
+				<div class="container">
+					<!-- Contact Section Heading-->
+					<h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Candidatos Apuntados</h2>
+					<!-- Icon Divider-->
+					<div class="divider-custom">
+						<div class="divider-custom-line"></div>
+						<div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+						<div class="divider-custom-line"></div>
+					</div>
+					<br>
+					<h3> Lo sentimos {{nombreEmpresa}} pero todavia no hay ningún candidato que se haya apuntado a su anuncio.
+				</div>
+			</section>
+			{{/noHayCandidatosApuntadosAnuncio}}
+
+				{{#hayCandidatosApuntadosAnuncio}}
+					<!-- Listas de empresa-->
+               <section class="page-section">
+				<br>
+				<br>
+				<div class="container">
+					<!-- Contact Section Heading-->
+					<h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Candidatos Apuntados</h2>
+					<!-- Icon Divider-->
+					<div class="divider-custom">
+						<div class="divider-custom-line"></div>
+						<div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+						<div class="divider-custom-line"></div>
+					</div>
+					<br>
+					
+					<div class="table-responsive">
+						<table class="table table-bordered">
+						  <thead >
+						    <tr id="tabla_lista_empresas_cabecera">
+						      <th scope="col">Nombre</th>
+						      <th scope="col">Apellidos</th>
+						      <th scope="col">Email</th>
+						      <th scope="col">Curriculum Candidato</th>
+						     </tr>
+						  </thead>
+						  {{#listaCandidatosApuntadosAnuncio}}
+						  <tbody>
+						    <tr>
+						      {{#nombre}}
+						      <td>{{.}}</td>
+						      {{/nombre}}
+						      {{#apellidos}}
+						      <td>{{.}}</td>
+						      {{/apellidos}}
+						      {{#email}}
+						      <td>{{.}}</td>
+						      {{/email}}
+							{{#candidatoApuntados}}
+							      {{#id}}
+											<td><form action= "NCandidatosApuntados" method="post">
+												<input type="hidden" name= "id" value= {{.}} readonly/>
+                            <input type="hidden" name="_csrf" value="{{token}}"/>						
+
+												<button class="btn btn-primary" >Numero Candidato Apuntados</button>
+											</form>		</td>				
+									{{/id}}
+								{{/candidatoApuntados}}
+								{{#id}}
+											<td><form action= "infoCandidato" method="get">
+												<input type="hidden" name= "id" value= {{.}} readonly/>
+                            <input type="hidden" name="_csrf" value="{{token}}"/>						
+
+												<button class="btn btn-primary" >Curriculum Candidato</button>
+											</form>		</td>				
+									{{/id}}
+						    </tr>
+						  </tbody>
+						  {{/listaCandidatosApuntadosAnuncio}}
+						</table>
+					</div>
+				</div>
+			</section>
+			{{/hayCandidatosApuntadosAnuncio}}
+               
+        
+        <!-- Footer-->
+        <footer class="footer text-center">
+            <div class="container">
+                <div class="row">
+                    <!-- Footer Location-->
+                    <div class="col-sm">
+                       
+                    </div>
+                    <!-- Footer Social Icons-->
+                    <div class="col-sm">
+					      <!-- Facebook -->
+					      <a
+					        class="btn btn-primary btn-floating m-1"
+					        style="background-color: #3b5998;"
+					       href="https://es.linkedin.com/"
+					        role="button"
+					        ><i class="fab fa-linkedin fa-2x"></i
+					      >
+					      </a>
+					       <!-- Facebook -->
+					      <a
+					        class="btn btn-primary btn-floating m-1"
+					        style="background-color:blue"
+					       href="https://www.facebook.com"
+					        role="button"
+					        ><i class="fab fa-facebook-f fa-2x"></i
+					      >
+					      </a>
+					
+					      <!-- Twitter -->
+					      <a
+					        class="btn btn-primary btn-floating m-1"
+					        style="background-color: #55acee;"
+					        href="https://www.twitter.com"
+					        role="button"
+					        ><i class="fab fa-twitter fa-2x"></i
+					      ></a>
+					
+					      <!-- Google -->
+					      <a
+					        class="btn btn-primary btn-floating m-1"
+					        style="background-color: #dd4b39;"
+					        href="https://www.plus.google.com"
+					        role="button"
+					        ><i class="fab fa-google-plus fa-2x"></i
+					      ></a>
+					
+					      <!-- Instagram -->
+					      <a
+					        class="btn btn-primary btn-floating m-1"
+					        style="background-color: #ac2bac;"
+					        href="https://www.instagram.com"
+					        role="button"
+					        ><i class="fab fa-instagram fa-2x"></i
+					      ></a>
+                     </div>
+                    <!-- Footer About Text-->
+                    <div class="col-sm">
+                        
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Copyright Section-->
+        <div class="copyright py-4 text-center text-white">
+            <div class="container" style="color:coral"><small>Copyright &copy; Your Website 2021</small></div>
+        </div>
+  
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    </body>
+</html>
